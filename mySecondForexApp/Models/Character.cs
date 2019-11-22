@@ -191,14 +191,15 @@ namespace mySecondForexApp.Models
             PropertyInfo[] pInfos = t.GetProperties();
             //Console.WriteLine(pInfos);
 
-            foreach (PropertyInfo x in pInfos)
+            foreach (PropertyInfo p in pInfos)
             {
-                Quote = x.Name;
+                Quote = p.Name;
                 Console.WriteLine(Quote);
                 QuotesList.Add(Quote);
             }
 
-            return (QuotesList);
+            var orderedQuotes = QuotesList.OrderBy(x => x).ToList();
+            return (orderedQuotes);
 
         }
 

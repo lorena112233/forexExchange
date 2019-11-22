@@ -6,14 +6,15 @@
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 <table class="table table-bordered table-responsive table-hover">
+    @foreach (RootObject x in Model)
+    {
         <tr>
-            <th>Base</th>
+            <th>@x</th>
             <th>ExcRate</th>
             <th>Quote</th>
             @*<th>Amount</th>*@
         </tr>
-        @foreach (RootObject x in Model)
-        {
+
         <tr>
             <td>@x.Date.ToString("yyyy-MM-dd")</td>
             <td>@x.Base</td>
@@ -188,183 +189,5 @@
 
 
         </tr>
-        }
-    </table>
-
-@*@{
-    foreach (RootObject x in Model)
-    {
-        <p>@x.Base</p>
-        <p>@x.ExcRate.AED</p>
-        <p>@x.ExcRate.AFN</p>
-        <p>@x.ExcRate.ALL</p>
-        <p>@x.ExcRate.AMD</p>
-        <p>@x.ExcRate.ANG</p>
-        <p>@x.ExcRate.AOA</p>
-        <p>@x.ExcRate.ARS</p>
-        <p>@x.ExcRate.AUD</p>
-        <p>@x.ExcRate.AWG</p>
-        <p>@x.ExcRate.AZN</p>
-        <p>@x.ExcRate.BAM</p>
-        <p>@x.ExcRate.BBD</p>
-        <p>@x.ExcRate.BDT</p>
-        <p>@x.ExcRate.BGN</p>
-        <p>@x.ExcRate.BHD</p>
-        <p>@x.ExcRate.BIF</p>
-        <p>@x.ExcRate.BMD</p>
-        <p>@x.ExcRate.BND</p>
-        <p>@x.ExcRate.BOB</p>
-        <p>@x.ExcRate.BRL</p>
-        <p>@x.ExcRate.BSD</p>
-        <p>@x.ExcRate.BTC</p>
-        <p>@x.ExcRate.BTN</p>
-        <p>@x.ExcRate.BWP</p>
-        <p>@x.ExcRate.BYN</p>
-        <p>@x.ExcRate.BYR</p>
-        <p>@x.ExcRate.BZD</p>
-        <p>@x.ExcRate.CAD</p>
-        <p>@x.ExcRate.CDF</p>
-        <p>@x.ExcRate.CHF</p>
-        <p>@x.ExcRate.CLF</p>
-        <p>@x.ExcRate.CLP</p>
-        <p>@x.ExcRate.CNY</p>
-        <p>@x.ExcRate.COP</p>
-        <p>@x.ExcRate.CRC</p>
-        <p>@x.ExcRate.CUC</p>
-        <p>@x.ExcRate.CUP</p>
-        <p>@x.ExcRate.CVE</p>
-        <p>@x.ExcRate.CZK</p>
-        <p>@x.ExcRate.DJF</p>
-        <p>@x.ExcRate.DKK</p>
-        <p>@x.ExcRate.DOP</p>
-        <p>@x.ExcRate.DZD</p>
-        <p>@x.ExcRate.EGP</p>
-        <p>@x.ExcRate.ERN</p>
-        <p>@x.ExcRate.ETB</p>
-        <p>@x.ExcRate.EUR</p>
-        <p>@x.ExcRate.FJD</p>
-        <p>@x.ExcRate.FKP</p>
-        <p>@x.ExcRate.GBP</p>
-        <p>@x.ExcRate.GEL</p>
-        <p>@x.ExcRate.GGP</p>
-        <p>@x.ExcRate.GHS</p>
-        <p>@x.ExcRate.GIP</p>
-        <p>@x.ExcRate.GMD</p>
-        <p>@x.ExcRate.GNF</p>
-        <p>@x.ExcRate.GTQ</p>
-        <p>@x.ExcRate.GYD</p>
-        <p>@x.ExcRate.HKD</p>
-        <p>@x.ExcRate.HNL</p>
-        <p>@x.ExcRate.HRK</p>
-        <p>@x.ExcRate.HTG</p>
-        <p>@x.ExcRate.HUF</p>
-        <p>@x.ExcRate.IDR</p>
-        <p>@x.ExcRate.ILS</p>
-        <p>@x.ExcRate.IMP</p>
-        <p>@x.ExcRate.INR</p>
-        <p>@x.ExcRate.IQD</p>
-        <p>@x.ExcRate.IRR</p>
-        <p>@x.ExcRate.ISK</p>
-        <p>@x.ExcRate.JEP</p>
-        <p>@x.ExcRate.JMD</p>
-        <p>@x.ExcRate.JOD</p>
-        <p>@x.ExcRate.JPY</p>
-        <p>@x.ExcRate.KES</p>
-        <p>@x.ExcRate.KGS</p>
-        <p>@x.ExcRate.KHR</p>
-        <p>@x.ExcRate.KMF</p>
-        <p>@x.ExcRate.KPW</p>
-        <p>@x.ExcRate.KRW</p>
-        <p>@x.ExcRate.KWD</p>
-        <p>@x.ExcRate.KYD</p>
-        <p>@x.ExcRate.KZT</p>
-        <p>@x.ExcRate.LAK</p>
-        <p>@x.ExcRate.LBP</p>
-        <p>@x.ExcRate.LKR</p>
-        <p>@x.ExcRate.LRD</p>
-        <p>@x.ExcRate.LSL</p>
-        <p>@x.ExcRate.LTL</p>
-        <p>@x.ExcRate.LVL</p>
-        <p>@x.ExcRate.LYD</p>
-        <p>@x.ExcRate.MAD</p>
-        <p>@x.ExcRate.MDL</p>
-        <p>@x.ExcRate.MGA</p>
-        <p>@x.ExcRate.MKD</p>
-        <p>@x.ExcRate.MMK</p>
-        <p>@x.ExcRate.MNT</p>
-        <p>@x.ExcRate.MOP</p>
-        <p>@x.ExcRate.MRO</p>
-        <p>@x.ExcRate.MUR</p>
-        <p>@x.ExcRate.MVR</p>
-        <p>@x.ExcRate.MWK</p>
-        <p>@x.ExcRate.MXN</p>
-        <p>@x.ExcRate.MYR</p>
-        <p>@x.ExcRate.MZN</p>
-        <p>@x.ExcRate.NAD</p>
-        <p>@x.ExcRate.NGN</p>
-        <p>@x.ExcRate.NIO</p>
-        <p>@x.ExcRate.NOK</p>
-        <p>@x.ExcRate.NPR</p>
-        <p>@x.ExcRate.NZD</p>
-        <p>@x.ExcRate.OMR</p>
-        <p>@x.ExcRate.PAB</p>
-        <p>@x.ExcRate.PEN</p>
-        <p>@x.ExcRate.PGK</p>
-        <p>@x.ExcRate.PHP</p>
-        <p>@x.ExcRate.PKR</p>
-        <p>@x.ExcRate.PLN</p>
-        <p>@x.ExcRate.PYG</p>
-        <p>@x.ExcRate.QAR</p>
-        <p>@x.ExcRate.RON</p>
-        <p>@x.ExcRate.RSD</p>
-        <p>@x.ExcRate.RUB</p>
-        <p>@x.ExcRate.RWF</p>
-        <p>@x.ExcRate.SAR</p>
-        <p>@x.ExcRate.SBD</p>
-        <p>@x.ExcRate.SCR</p>
-        <p>@x.ExcRate.SDG</p>
-        <p>@x.ExcRate.SEK</p>
-        <p>@x.ExcRate.SGD</p>
-        <p>@x.ExcRate.SHP</p>
-        <p>@x.ExcRate.SLL</p>
-        <p>@x.ExcRate.SOS</p>
-        <p>@x.ExcRate.SRD</p>
-        <p>@x.ExcRate.STD</p>
-        <p>@x.ExcRate.SVC</p>
-        <p>@x.ExcRate.SYP</p>
-        <p>@x.ExcRate.SZL</p>
-        <p>@x.ExcRate.THB</p>
-        <p>@x.ExcRate.TJS</p>
-        <p>@x.ExcRate.TMT</p>
-        <p>@x.ExcRate.TND</p>
-        <p>@x.ExcRate.TOP</p>
-        <p>@x.ExcRate.TRY</p>
-        <p>@x.ExcRate.TTD</p>
-        <p>@x.ExcRate.TWD</p>
-        <p>@x.ExcRate.TZS</p>
-        <p>@x.ExcRate.UAH</p>
-        <p>@x.ExcRate.UGX</p>
-        <p>@x.ExcRate.USD</p>
-        <p>@x.ExcRate.UYU</p>
-        <p>@x.ExcRate.UZS</p>
-        <p>@x.ExcRate.VEF</p>
-        <p>@x.ExcRate.VND</p>
-        <p>@x.ExcRate.VUV</p>
-        <p>@x.ExcRate.WST</p>
-        <p>@x.ExcRate.XAF</p>
-        <p>@x.ExcRate.XAG</p>
-        <p>@x.ExcRate.XAU</p>
-        <p>@x.ExcRate.XCD</p>
-        <p>@x.ExcRate.XDR</p>
-        <p>@x.ExcRate.XOF</p>
-        <p>@x.ExcRate.XPF</p>
-        <p>@x.ExcRate.YER</p>
-        <p>@x.ExcRate.ZAR</p>
-        <p>@x.ExcRate.ZMK</p>
-        <p>@x.ExcRate.ZMW</p>
-        <p>@x.ExcRate.ZWL</p>
-
     }
-
-
-}*@
+</table>
