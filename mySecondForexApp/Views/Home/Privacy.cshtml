@@ -1,6 +1,42 @@
-﻿@{
+﻿@model IEnumerable<Transaction>;
+@{
     ViewData["Title"] = "Privacy Policy";
+    //var trans = (Transaction)ViewData["MyTrans"];
 }
 <h2>@ViewData["Title"]</h2>
 
 <p>Use this page to detail your site's privacy policy.</p>
+
+<div><b>Table Format Data Displaying in ForEach</b><br /></div>
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>Date</th>
+        <th>Country</th>
+        <th>Currency</th>
+        <th>Amount</th>
+        <th>AmountEur</th>
+    </tr>
+    <th>@Model.Count()</th>
+    @foreach (Transaction d in Model)
+    {
+    <tr>
+        <td>@d.Date.ToString("yyyy-MM-dd")</td>
+        <td>@d.Country</td>
+        <td>@d.Currency</td>
+        <td>@d.Amount</td>
+        <td>@d.AmountEur</td>
+    </tr>
+    }
+</table>
+
+@{
+    //2019-10-11,United States of America,USD,54436
+
+    @*foreach (Transaction x in Model)
+    {
+        <h3>@x.Date.ToString("yyyy-MM-dd")</h3>
+        <h3>@x.Country</h3>
+        <h3>@x.Currency</h3>
+        <h3>@x.Amount</h3>
+    }*@
+}
