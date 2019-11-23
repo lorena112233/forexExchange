@@ -31,6 +31,14 @@ namespace mySecondForexApp.Controllers
             return View(transactionsData);
         }
 
+        //public async Task<IActionResult> UploadedData()
+        //{
+        //    //
+        //    List<TransactionData> transactionsData = await _dataService.GetTransactionsAsync();
+
+        //    return View(transactionsData);
+        //}
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

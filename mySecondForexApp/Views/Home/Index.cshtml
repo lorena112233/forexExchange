@@ -8,29 +8,37 @@
 <p>Use this page to detail your site's privacy policy.</p>
 
 <div><b>Table Format Data Displaying in ForEach</b><br /></div>
-<table class="table table-bordered table-responsive table-hover">
 
-    @*<th>@Model.Count()</th>*@
-    <tr>
-        <th>Date</th>
-        <th>Country</th>
-        <th>Currency</th>
-        <th>Amount</th>
-        <th>= EUR</th>
-    </tr>
-    @foreach (TransactionData d in Model)
-    {
+<table id="demo" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+    <thead>
+        @*<th>@Model.Count()</th>*@
         <tr>
-            <td>@d.Date.ToString("yyyy-MM-dd")</td>
-            <td>@d.Country</td>
-            <td>@d.Currency</td>
-            <td>@d.Amount</td>
-            <td>@d.AmountEur</td>
+            <th>Date</th>
+            <th>Country</th>
+            <th>Currency</th>
+            <th>Amount</th>
+            <th>= EUR</th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (TransactionData d in Model)
+        {
+            <tr>
+                <td>@d.Date.ToString("yyyy-MM-dd")</td>
+                <td>@d.Country</td>
+                <td>@d.Currency</td>
+                <td>@d.Amount</td>
+                <td>@d.AmountEur</td>
+            </tr>
+        }
+    </tbody>
 </table>
 
-@{
-    ViewBag.Title = "view";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+    @{
+        ViewBag.Title = "view";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+
+
+

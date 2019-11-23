@@ -21,7 +21,7 @@ namespace mySecondForexApp.Services
             RootObject rootObject = null;
 
             string mainUrl = "http://data.fixer.io/api/";
-            string apiKey = "access_key=f65fed759af96fcade0482113ff22d1e";
+            string apiKey = "access_key=e84f1ecb16944afe8768cd1033c09a19";
             List<string> quotesList = new List<string>();
 
             string dataInit = "2019-10-01";
@@ -49,10 +49,10 @@ namespace mySecondForexApp.Services
                 {
                     rootObject = await response.Content.ReadAsAsync<RootObject>();
                     lista1.Add(rootObject);
-                    if (i == 0)
-                    {
-                        quotesList = rootObject.ExcRate.GetNames();
-                    }
+                    //if (i == 0)
+                    //{
+                    //    quotesList = rootObject.ExcRate.GetNames();
+                    //}
                 }
             }
 
