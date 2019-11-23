@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using mySecondForexApp.Services;
 
 namespace mySecondForexApp
 {
@@ -31,6 +32,10 @@ namespace mySecondForexApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //dependencies
+            services.AddSingleton<IRatesService, RatesService>();
+            services.AddSingleton<ITransactionsService, TransactionsService>();
+            services.AddSingleton<IDataService, DataService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

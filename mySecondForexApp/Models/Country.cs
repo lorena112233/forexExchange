@@ -7,18 +7,18 @@ namespace mySecondForexApp.Models
 {
     public class Country
     {
-        public DateTime date { get; set; }
+        //public DateTime date { get; set; }
         public string name { get; set; }
         public float amountEur { get; set; }
 
-        public Country (DateTime date, string name, float amountEur)
+        public Country (string name, float amountEur)
         {
-            this.date = date;
+            //this.date = date;
             this.name = name;
             this.amountEur = amountEur;
         }
 
-        public void newTransaction()
+        public void newTransaction(string name, float amountEur)
         {
 
         }

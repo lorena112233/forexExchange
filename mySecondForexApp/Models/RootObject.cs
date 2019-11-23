@@ -11,7 +11,6 @@ namespace mySecondForexApp.Models
         public int Timestamp { get; set; }
         public string Base { get; set; }
         public DateTime Date { get; set; }
-        //[Newtonsoft.Json.JsonProperty(PropertyName = "base")]
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "rates")]
         //public List<Character> Characters { get; set; }

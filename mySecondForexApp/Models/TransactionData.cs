@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace mySecondForexApp.Models
 {
-    public class Transaction
+    public class TransactionData
     {
             public DateTime Date { get; set; }
             public string Country { get; set; }
@@ -14,10 +14,10 @@ namespace mySecondForexApp.Models
             public float AmountEur { get; set; }
 
 
-        public static Transaction FromCsv(string csvLine)
+        public static TransactionData FromCsv(string csvLine)
             {
                 string[] values = csvLine.Split(',');
-                Transaction transactions = new Transaction();
+                TransactionData transactions = new TransactionData();
                 transactions.Date = Convert.ToDateTime(values[0]);
                 transactions.Country = Convert.ToString(values[1]);
                 transactions.Currency = Convert.ToString(values[2]);

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Transaction>;
+﻿@model IEnumerable<TransactionData>;
 @{
     ViewData["Title"] = "Privacy Policy";
     //var trans = (Transaction)ViewData["MyTrans"];
@@ -18,7 +18,7 @@
         <th>Amount</th>
         <th>= EUR</th>
     </tr>
-    @foreach (Transaction d in Model)
+    @foreach (TransactionData d in Model)
     {
         <tr>
             <td>@d.Date.ToString("yyyy-MM-dd")</td>
