@@ -22,6 +22,7 @@ namespace mySecondForexApp.Services
             return values;
         }
 
+        //merge info from .csv and API
         public List<TransactionData> PopulateEurField(List<TransactionData> values, List<RootObject> sortedListByDate)
         {
             //what I need to find the relationship between both files
@@ -47,22 +48,54 @@ namespace mySecondForexApp.Services
                     //get object structure to access to its atributes
                     var type = mySearch.GetType();
 
-                    /*I got already from the API, the object (line) associated to the date I am searching for.
+                    /*I got already from the API, the object associated to the date I am searching for.
                     Now---> access to - ExcRate - atribute's values (all currencies)*/
                     Character exchangeRate = (Character)type.GetProperty("ExcRate").GetValue(mySearch);
                     var typeOfChange = exchangeRate.GetType();
 
                     //find the value of that currency in exchangeRate
-                    float transAmount = (float)typeOfChange.GetProperty(divisa).GetValue(exchangeRate);
-                    float howMuch = (float)Convert.ToDouble(transaccion.Amount);
-                    transaccion.AmountEur = transAmount * howMuch;
+                    float rate = (float)typeOfChange.GetProperty(divisa).GetValue(exchangeRate);
+                    float amount = (float)Convert.ToDouble(transaccion.Amount);
+                    //AmountEur can be derived by dividing the 'amount' by 'rate'.
+                    transaccion.AmountEur = amount / rate;
 
                 }
-
 
             } //end foreach
 
             return values;
         }
+
+        //clasification / groups by countries
+        public List<TransactionData> PopulateGroupField(List<TransactionData> values)
+        {
+
+            /*  Austria, Italy, Belgium and Latvia = 'EU'
+                Chile, Qatar, United Arab Emirates and United States of America = 'ROW'
+                United Kingdom = 'United Kingdom', 
+                Australia = 'Australia'
+                South Africa = 'South Africa'
+            */
+
+            //List<CountryGroup> groupCountry = new List<CountryGroup>();
+
+            //EU group
+            float totalEU = 0;
+            var EUGroup =
+                from transaccion in values
+                where transaccion.Country == "Austria" || transaccion.Country == "Italy" || transaccion.Country == "Belgium" || transaccion.Country == "Latvia"
+                select transaccion;
+
+
+            foreach (TransactionData transaction in EUGroup)
+            {
+                totalEU += transaction.AmountEur;
+            }
+
+
+            //
+            return values;
+        }
+
     }
 }

@@ -5,7 +5,6 @@
 }
 <h2>@ViewData["Title"]</h2>
 
-<p>Use this page to detail your site's privacy policy.</p>
 
 <div><b>Table Format Data Displaying in ForEach</b><br /></div>
 
@@ -23,25 +22,28 @@
             <th>
                 Currency
             </th>
-            <
             <th>
                 Amount
             </th>
             <th>
                 @Html.ActionLink("EUR", "Index", new { sortOrder = ViewBag.EurSortParm })
             </th>
+            <th>
+                Group
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach (TransactionData d in Model)
         {
-            <tr>
-                <td>@d.Date.ToString("yyyy-MM-dd")</td>
-                <td>@d.Country</td>
-                <td>@d.Currency</td>
-                <td>@d.Amount</td>
-                <td>@d.AmountEur</td>
-            </tr>
+        <tr>
+            <td>@d.Date.ToString("yyyy-MM-dd")</td>
+            <td>@d.Country</td>
+            <td>@d.Currency</td>
+            <td>@d.Amount</td>
+            <td>@d.AmountEur</td>
+            <td>@d.Group</td>
+        </tr>
         }
     </tbody>
 </table>

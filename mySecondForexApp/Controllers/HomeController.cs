@@ -25,13 +25,11 @@ namespace mySecondForexApp.Controllers
 
         public async Task<IActionResult> Index(string sortOrder)
         {
-            /*ASI estaba bien
+            /*ASI estaba bien sin filtrar
             List<TransactionData> transactionsData = await _dataService.GetTransactionsAsync();
 
             return View(transactionsData.ToList());
             */
-
-
 
             List<TransactionData> transactionsData = await _dataService.GetTransactionsAsync();
             ViewBag.DateSortParm = String.IsNullOrEmpty(sortOrder) ? "Date" : "";
@@ -72,13 +70,6 @@ namespace mySecondForexApp.Controllers
             return View(objTransaction.ToList());
         }
 
-        //public async Task<IActionResult> UploadedData()
-        //{
-        //    //
-        //    List<TransactionData> transactionsData = await _dataService.GetTransactionsAsync();
-
-        //    return View(transactionsData);
-        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
