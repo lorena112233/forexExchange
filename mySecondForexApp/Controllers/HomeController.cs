@@ -70,6 +70,13 @@ namespace mySecondForexApp.Controllers
             return View(objTransaction.ToList());
         }
 
+        public async Task<IActionResult> Group()
+        {
+            List<TransactionData> transactionsData = await _dataService.GetTransactionsAsync();
+
+            return View(transactionsData);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -58,6 +58,19 @@ namespace mySecondForexApp.Services
                     float amount = (float)Convert.ToDouble(transaccion.Amount);
                     //AmountEur can be derived by dividing the 'amount' by 'rate'.
                     transaccion.AmountEur = amount / rate;
+                    //EU group
+                    float totalEU = 0;
+                    var EUGroup =
+                        from transac2 in values
+                        where transac2.Country == "Austria" || transac2.Country == "Italy" || transac2.Country == "Belgium" || transac2.Country == "Latvia"
+                        select transac2;
+
+
+                    foreach (TransactionData transaction in EUGroup)
+                    {
+                        totalEU += transaction.AmountEur;
+                        transaction.Group = "EU";
+                    }
 
                 }
 
@@ -90,6 +103,7 @@ namespace mySecondForexApp.Services
             foreach (TransactionData transaction in EUGroup)
             {
                 totalEU += transaction.AmountEur;
+                transaction.Group = "EU";
             }
 
 

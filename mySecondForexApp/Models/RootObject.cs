@@ -13,8 +13,8 @@ namespace mySecondForexApp.Models
         public DateTime Date { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "rates")]
-        //public List<Character> Characters { get; set; }
+
+        //An obj with all exchange rates as atributes
         public Character ExcRate { get; set; }
-        //tengo un atributo que me guarda la lista de Characters
     }
 }
