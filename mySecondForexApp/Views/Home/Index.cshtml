@@ -13,11 +13,23 @@
     <thead>
         @*<th>@Model.Count()</th>*@
         <tr>
-            <th>Date</th>
-            <th>Country</th>
-            <th>Currency</th>
-            <th>Amount</th>
-            <th>= EUR</th>
+            @*<th>Date</th>*@
+            <th>
+                @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("Country", "Index", new { sortOrder = ViewBag.CountrySortParm })
+            </th>
+            <th>
+                Currency
+            </th>
+            <
+            <th>
+                Amount
+            </th>
+            <th>
+                @Html.ActionLink("EUR", "Index", new { sortOrder = ViewBag.EurSortParm })
+            </th>
         </tr>
     </thead>
     <tbody>

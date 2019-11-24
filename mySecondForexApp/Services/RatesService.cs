@@ -21,12 +21,12 @@ namespace mySecondForexApp.Services
             RootObject rootObject = null;
 
             string mainUrl = "http://data.fixer.io/api/";
-            string apiKey = "access_key=e84f1ecb16944afe8768cd1033c09a19";
+            string apiKey = "access_key=f5a2193109816e03e4eb3f8ef395d7bf";
             List<string> quotesList = new List<string>();
 
             string dataInit = "2019-10-01";
             DateTime fromDate = Convert.ToDateTime(dataInit);
-            string dataEnd = "2019-10-31";
+            string dataEnd = "2019-10-03";
             DateTime toDate = Convert.ToDateTime(dataEnd);
             TimeSpan tSpan = toDate - fromDate;
             int days = tSpan.Days;
