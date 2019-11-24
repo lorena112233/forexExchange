@@ -12,9 +12,9 @@ namespace mySecondForexApp.Services
         {
             //------------------------------- Now .CSV data ------------------------------
             //.csv files
-            List<TransactionData> values1 = System.IO.File.ReadAllLines("D:\\Datos\\Downloads\\1573460310_CITechnicalTest\\CITechnicalTest\\data\\data1.csv").Skip(1).Select(v => TransactionData.FromCsv(v)).ToList();
-            List<TransactionData> values2 = System.IO.File.ReadAllLines("D:\\Datos\\Downloads\\1573460310_CITechnicalTest\\CITechnicalTest\\data\\data2.csv").Skip(1).Select(v => TransactionData.FromCsv(v)).ToList();
-            List<TransactionData> values3 = System.IO.File.ReadAllLines("D:\\Datos\\Downloads\\1573460310_CITechnicalTest\\CITechnicalTest\\data\\data3.csv").Skip(1).Select(v => TransactionData.FromCsv(v)).ToList();
+            List<TransactionData> values1 = System.IO.File.ReadAllLines("data1.csv").Skip(1).Select(v => TransactionData.FromCsv(v)).ToList();
+            List<TransactionData> values2 = System.IO.File.ReadAllLines("data2.csv").Skip(1).Select(v => TransactionData.FromCsv(v)).ToList();
+            List<TransactionData> values3 = System.IO.File.ReadAllLines("data3.csv").Skip(1).Select(v => TransactionData.FromCsv(v)).ToList();
 
             //all data taken from .csv files
             List<TransactionData> values = values1.Concat(values2).Concat(values3).OrderBy(x => x.Date).ToList();
