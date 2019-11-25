@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace mySecondForexApp.Models
 {
@@ -9,6 +10,7 @@ namespace mySecondForexApp.Models
     {
         public int GroupId { get; set; }
         public string Group { get; set; }
+        [System.ComponentModel.DataAnnotations.DisplayFormat(DataFormatString = "{0:C}")]
         public decimal AmountEur { get; set; }
 
         public void addAmount(decimal amount)
@@ -44,15 +46,7 @@ namespace mySecondForexApp.Models
         }
 
 
-        //public static DataByGroup CalculateAmountEur(List<TransactionData> mergedResults)
-        //{
 
-        //    //foreach (TransactionData transaccion in mergedResults)
-        //    //{
-
-        //    //}
-
-        //}
 
 
     }

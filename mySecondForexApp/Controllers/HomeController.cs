@@ -142,8 +142,16 @@ namespace mySecondForexApp.Controllers
 
             //after defining which countries belong to each group, sum all transaction amounts:
             groupEU.UpdateAmountEuro(EUGroup);
+            groupRow.UpdateAmountEuro(RowGroup);
+            groupUk.UpdateAmountEuro(UkGroup);
+            groupSA.UpdateAmountEuro(SaGroup);
+            groupAustra.UpdateAmountEuro(AustraliaGroup);
 
             listByGroups.Add(groupEU);
+            listByGroups.Add(groupRow);
+            listByGroups.Add(groupUk);
+            listByGroups.Add(groupSA);
+            listByGroups.Add(groupAustra);
 
             return View(listByGroups);
         }

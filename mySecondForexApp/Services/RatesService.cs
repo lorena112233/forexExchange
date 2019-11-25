@@ -26,7 +26,7 @@ namespace mySecondForexApp.Services
 
             string dataInit = "2019-10-01";
             DateTime fromDate = Convert.ToDateTime(dataInit);
-            string dataEnd = "2019-10-03";
+            string dataEnd = "2019-10-31";
             DateTime toDate = Convert.ToDateTime(dataEnd);
             TimeSpan tSpan = toDate - fromDate;
             int days = tSpan.Days;
