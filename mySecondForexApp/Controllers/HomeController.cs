@@ -10,6 +10,7 @@ using System.IO;
 using System.Data;
 using System.Reflection;
 using mySecondForexApp.Services;
+using System.Text;
 
 namespace mySecondForexApp.Controllers
 {
@@ -153,6 +154,19 @@ namespace mySecondForexApp.Controllers
             listByGroups.Add(groupSA);
             listByGroups.Add(groupAustra);
 
+            /*export to .CSV*/
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < listByGroups.Count; i++)
+            {
+                DataByGroup infoGroup = (DataByGroup)listByGroups[i];
+                //Append data with separator.
+                sb.Append(infoGroup.GroupId + ',' + infoGroup.Group + ',' + infoGroup.AmountEur);
+
+                //Append new line character.
+                sb.Append("\r\n");
+
+            }
+            System.IO.File.AppendAllText("Grid.csv", sb.ToString());
             return View(listByGroups);
         }
 

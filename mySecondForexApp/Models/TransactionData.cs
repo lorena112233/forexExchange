@@ -11,7 +11,7 @@ namespace mySecondForexApp.Models
             public string Country { get; set; }
             public string Currency { get; set; }
             public int Amount { get; set; }
-            public float AmountEur { get; set; }
+            public decimal AmountEur { get; set; }
             public string Group { get; set; }
 
 

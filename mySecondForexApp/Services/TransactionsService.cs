@@ -55,11 +55,11 @@ namespace mySecondForexApp.Services
 
                     //find the value of that currency in exchangeRate
                     float rate = (float)typeOfChange.GetProperty(divisa).GetValue(exchangeRate);
-                    float amount = (float)Convert.ToDouble(transaccion.Amount);
+                    decimal amount = Convert.ToDecimal(transaccion.Amount);
                     //AmountEur can be derived by dividing the 'amount' by 'rate'.
-                    transaccion.AmountEur = amount / rate;
+                    transaccion.AmountEur = amount / (decimal)rate;
                     //EU group
-                    float totalEU = 0;
+                    decimal totalEU = 0;
                     var EUGroup =
                         from transac2 in values
                         where transac2.Country == "Austria" || transac2.Country == "Italy" || transac2.Country == "Belgium" || transac2.Country == "Latvia"
@@ -93,7 +93,7 @@ namespace mySecondForexApp.Services
             //List<CountryGroup> groupCountry = new List<CountryGroup>();
 
             //EU group
-            float totalEU = 0;
+            decimal totalEU = 0;
             var EUGroup =
                 from transaccion in values
                 where transaccion.Country == "Austria" || transaccion.Country == "Italy" || transaccion.Country == "Belgium" || transaccion.Country == "Latvia"
