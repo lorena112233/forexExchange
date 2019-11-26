@@ -25,9 +25,7 @@
             <th>
                 @Html.ActionLink("EUR", "Index", new { sortOrder = ViewBag.EurSortParm })
             </th>
-            <th>
-                Group
-            </th>
+
         </tr>
     </thead>
     <tbody>
@@ -38,8 +36,7 @@
             <td>@d.Country</td>
             <td>@d.Currency</td>
             <td>@d.Amount</td>
-            <td>@d.AmountEur</td>
-            <td>@d.Group</td>
+            <td>@string.Format("{0:C}", d.AmountEur)</td>
         </tr>
         }
     </tbody>

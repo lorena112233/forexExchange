@@ -55,59 +55,17 @@ namespace mySecondForexApp.Services
 
                     //find the value of that currency in exchangeRate
                     float rate = (float)typeOfChange.GetProperty(divisa).GetValue(exchangeRate);
+
+                    //to calculate the rate we need to match variable's type
                     decimal amount = Convert.ToDecimal(transaccion.Amount);
+
                     //AmountEur can be derived by dividing the 'amount' by 'rate'.
                     transaccion.AmountEur = amount / (decimal)rate;
-                    //EU group
-                    decimal totalEU = 0;
-                    var EUGroup =
-                        from transac2 in values
-                        where transac2.Country == "Austria" || transac2.Country == "Italy" || transac2.Country == "Belgium" || transac2.Country == "Latvia"
-                        select transac2;
-
-
-                    foreach (TransactionData transaction in EUGroup)
-                    {
-                        totalEU += transaction.AmountEur;
-                        transaction.Group = "EU";
-                    }
 
                 }
 
             } //end foreach
 
-            return values;
-        }
-
-        //clasification / groups by countries
-        public List<TransactionData> PopulateGroupField(List<TransactionData> values)
-        {
-
-            /*  Austria, Italy, Belgium and Latvia = 'EU'
-                Chile, Qatar, United Arab Emirates and United States of America = 'ROW'
-                United Kingdom = 'United Kingdom', 
-                Australia = 'Australia'
-                South Africa = 'South Africa'
-            */
-
-            //List<CountryGroup> groupCountry = new List<CountryGroup>();
-
-            //EU group
-            decimal totalEU = 0;
-            var EUGroup =
-                from transaccion in values
-                where transaccion.Country == "Austria" || transaccion.Country == "Italy" || transaccion.Country == "Belgium" || transaccion.Country == "Latvia"
-                select transaccion;
-
-
-            foreach (TransactionData transaction in EUGroup)
-            {
-                totalEU += transaction.AmountEur;
-                transaction.Group = "EU";
-            }
-
-
-            //
             return values;
         }
 

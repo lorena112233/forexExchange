@@ -21,7 +21,7 @@ namespace mySecondForexApp.Services
             RootObject rootObject = null;
 
             string mainUrl = "http://data.fixer.io/api/";
-            string apiKey = "access_key=f5a2193109816e03e4eb3f8ef395d7bf";
+            string apiKey = "access_key=00000000000000000";
             List<string> quotesList = new List<string>();
 
             string dataInit = "2019-10-01";
@@ -30,7 +30,6 @@ namespace mySecondForexApp.Services
             DateTime toDate = Convert.ToDateTime(dataEnd);
             TimeSpan tSpan = toDate - fromDate;
             int days = tSpan.Days;
-            //Console.WriteLine("---tSpan---", days);
 
             for (int i = 0; i <= days; i++)
             {
@@ -39,26 +38,16 @@ namespace mySecondForexApp.Services
                 string url = mainUrl + dataInit + "?" + apiKey;
                 dataInit = fromDate.ToString("yyyy-MM-dd");
 
-
                 HttpResponseMessage response = await client.GetAsync(url);
-                //response es el nombre de la variable que le damos en este caso
-                //Console.WriteLine(response);
-
 
                 if (response.IsSuccessStatusCode)
                 {
                     rootObject = await response.Content.ReadAsAsync<RootObject>();
                     lista1.Add(rootObject);
-                    //if (i == 0)
-                    //{
-                    //    quotesList = rootObject.ExcRate.GetNames();
-                    //}
                 }
             }
 
             List<RootObject> sortedListByDate = lista1.OrderBy(RootObject => RootObject.Date).ToList();
-            //tengo un atributo en RootObject que me guarda la lista de Characters
-            //lo tengo que recorrer
 
             return sortedListByDate;
             //---- finished API here------------------------------------------------------------------------

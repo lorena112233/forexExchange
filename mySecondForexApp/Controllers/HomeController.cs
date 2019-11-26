@@ -26,12 +26,6 @@ namespace mySecondForexApp.Controllers
 
         public async Task<IActionResult> Index(string sortOrder)
         {
-            /*ASI estaba bien sin filtrar
-            List<TransactionData> transactionsData = await _dataService.GetTransactionsAsync();
-
-            return View(transactionsData.ToList());
-            */
-
             List<TransactionData> transactionsData = await _dataService.GetTransactionsAsync();
             ViewBag.DateSortParm = String.IsNullOrEmpty(sortOrder) ? "Date" : "";
 
@@ -79,37 +73,6 @@ namespace mySecondForexApp.Controllers
             //create a new list to save clasificated data, to send it to the view
             List<DataByGroup> listByGroups = new List<DataByGroup>();
 
-            //var checkDuplicates =
-            //    from r in transactionsData
-            //    group r by r.Country into grupedQuery
-            //    select new
-            //    {
-            //        //return number of different countries
-            //        Country = grupedQuery.Key,
-            //        Count = (from r in grupedQuery select r.Date).Distinct().Count()
-            //    };
-
-            ////how many countries
-            //int contador = checkDuplicates.Count();
-
-            //string[] paises = new string[0];
-
-            //paises.Append("1111");
-
-            //foreach (var countryLoop in checkDuplicates)
-            //{
-            //    paises.Append(countryLoop.Country);
-            //}
-
-            //string[] countries = new string[contador] { "Argentina", "Bolivia", "Peru", "Chile", "Colombia" };
-
-            //EU group
-            //float totalEU = 0;
-            //for (int i = 0; i < transactionsData.; i++)
-            //{
-            //DataByGroup groupEU = new DataByGroup();
-
-            //}
             DataByGroup groupEU = new DataByGroup(1, "EU", 0);
             DataByGroup groupRow = new DataByGroup(2, "ROW", 0);
             DataByGroup groupUk = new DataByGroup(3, "United Kingdom", 0);

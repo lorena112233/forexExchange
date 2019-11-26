@@ -13,27 +13,12 @@ namespace mySecondForexApp.Models
         [System.ComponentModel.DataAnnotations.DisplayFormat(DataFormatString = "{0:C}")]
         public decimal AmountEur { get; set; }
 
-        public void addAmount(decimal amount)
-        {
-            this.AmountEur += amount;
-        }
-
-        public DataByGroup()
-        {
-
-        }
-
         //contructor con parámetros
         public DataByGroup(int GroupId, string Group, decimal AmountEur)
         {
             this.GroupId = GroupId;
             this.Group = Group;
             this.AmountEur = AmountEur;
-        }
-
-        public void NewTransaction(decimal amount)
-        {
-            AmountEur = AmountEur + amount;
         }
 
         //I get a list of an specific group, take their list of transactions to sum them all in EUR 
@@ -44,10 +29,6 @@ namespace mySecondForexApp.Models
                 this.AmountEur += (decimal)transaction.AmountEur;
             }
         }
-
-
-
-
 
     }
 }
