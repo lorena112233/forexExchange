@@ -24,7 +24,7 @@ namespace mySecondForexApp.Controllers
             _dataService = dataService;
         }
 
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder) //funcionalidad de sorting(ordenando) by (id, date, country o amount of EUR...)
         {
             List<TransactionData> transactionsData = await _dataService.GetTransactionsAsync();
             ViewBag.DateSortParm = String.IsNullOrEmpty(sortOrder) ? "Date" : "";
@@ -34,7 +34,7 @@ namespace mySecondForexApp.Controllers
 
             var objTransaction = from t in transactionsData
                            select t;
-            switch (sortOrder)
+            switch (sortOrder) //Parallel ordenarlo
             {
                 case "Date":
                     objTransaction = objTransaction.OrderBy(t => t.Date);
@@ -61,11 +61,11 @@ namespace mySecondForexApp.Controllers
                     break;
             }
 
-            //return View(transactionsData.ToList());
+            //envio la agrupacion ordenada a la vista
             return View(objTransaction.ToList());
         }
 
-        public async Task<IActionResult> Group()
+        public async Task<IActionResult> Group() //aqui no estoy ordenando, aqui los estoy filtrando. solo selecciono lso que cumplen condicion
         {
             //clasification in groups
             List<TransactionData> transactionsData = await _dataService.GetTransactionsAsync();
@@ -111,6 +111,7 @@ namespace mySecondForexApp.Controllers
             groupSA.UpdateAmountEuro(SaGroup);
             groupAustra.UpdateAmountEuro(AustraliaGroup);
 
+            //add cada group a listByGroups
             listByGroups.Add(groupEU);
             listByGroups.Add(groupRow);
             listByGroups.Add(groupUk);

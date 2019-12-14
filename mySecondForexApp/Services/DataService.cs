@@ -11,7 +11,7 @@ namespace mySecondForexApp.Services
         private readonly IRatesService _ratesService;
         private readonly ITransactionsService _transactionsService;
 
-        //constructor: inject an object(DataService)
+        //constructor: inject an object(DataService) toda la funcionalidad de obtener los datos en una sola ubicacion
         public DataService(IRatesService ratesService, ITransactionsService transactionsService)
         {
             _ratesService = ratesService;
